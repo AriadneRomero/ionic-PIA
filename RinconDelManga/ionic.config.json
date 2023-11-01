@@ -1,0 +1,7 @@
+{
+  "name": "RinconDelManga",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
