@@ -4,7 +4,13 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://api.jikan.moe/v4',
+  
+  apiKey: '60a43d2555ae0a8e29579db5b2551936',
+  baseUrl: 'https://api.themoviedb.org/3',
+  images: 'http://image.tmdb.org/t/p',
+  
+  //need to investigate before use
+  //baseUrl: 'https://api.jikan.moe/v4',
 };
 
 /*
