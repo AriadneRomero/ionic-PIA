@@ -17,7 +17,8 @@ import { IonicModule } from '@ionic/angular';
   exports:[
     HeaderComponent,
     CustomInputComponent,
-    LogoComponent
+    LogoComponent,
+    ReactiveFormsModule
   ],
   imports: [
     CommonModule,
