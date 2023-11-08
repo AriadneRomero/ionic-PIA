@@ -37,7 +37,7 @@ export class AuthPage implements OnInit {
         this.utilsSvc.presentToast({
           message: 'contraseña incorrecta o correo',
           duration: 2500,
-          color: 'primary',
+          color: 'danger', //cambiado Ari
           position: 'middle',
           icon: 'alert-circle-outline'
         })

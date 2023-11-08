@@ -37,7 +37,7 @@ export class SignUpPage implements OnInit {
         console.log(error);
 
         this.utilsSvc.presentToast({
-          message: 'contraseña incorrecta o correo',
+          message: 'Registro exitoso', //cambiado Ari
           duration: 2500,
           color: 'primary',
           position: 'middle',
