@@ -26,4 +26,15 @@ export class UtilsService {
   routerLink(url: string){
     return this.router.navigateByUrl(url);
   }
+
+  //---Guardar un elementos en localstorage---//
+  saveInLocalStorage(key: string, value: any){
+    return localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  //--Obtiene un elemento del localstorage---//
+  getFromLocalStorage(key: string){
+    return JSON.parse(localStorage.getItem(key))
+  }
+
 }
