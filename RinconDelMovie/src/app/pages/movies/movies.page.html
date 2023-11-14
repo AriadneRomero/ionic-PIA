@@ -1,20 +1,46 @@
+<ion-menu contentId="menu-content" menuId="menu-content" side="start">
+  <app-header title="Menú"></app-header>
+  <ion-content id="menuA" class="ion-text-center">
+
+    <ion-icon class="avatar-icon" name="person-circle-outline"></ion-icon>
+    <h4>{{user()?.name}}</h4>
+
+    <ion-menu-toggle auto-hide="false" *ngFor="let p of pages">
+      <ion-item id="menuB" [ngClass]="{active: currentPath == p.url}" [routerLink]="p.url" routerDirection="root"
+        detail>
+        <ion-icon slot="start" [name]="p.icon"></ion-icon>
+        <ion-label>{{p.title}}</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+
+  </ion-content>
+
+  <ion-footer class="ion-no-border safe-p-bottom">
+    <ion-menu-toggle auto-hide="false">
+      <ion-item (click)="signOut()" id="menuB" lines="none">
+        <ion-icon slot="start" name="log-out-outline"></ion-icon>
+        <ion-label>Cerrar Sesión</ion-label>
+      </ion-item>
+    </ion-menu-toggle>
+  </ion-footer>
+</ion-menu>
+
+<ion-router-outlet id="menu-content" main></ion-router-outlet>
+
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>Rincón Del Movie</ion-title>
-    <ion-button slot="end" expand="full" color="danger" (click)="signOut()">
-      Cerrar Sesión
-    </ion-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> 
+<ion-content>
   <ion-list>
     <ion-item button *ngFor="let item of movies" [routerLink]="[item.id]">
       <ion-avatar slot="start">
         <img [src]="imageBaseUrl + '/w92' + item.poster_path" />
       </ion-avatar>
-      
-      <ion-label> {{ item.title }} 
+
+      <ion-label> {{ item.title }}
         <p>{{ item.release_date | date: 'y'}}</p>
       </ion-label>
 
@@ -23,8 +49,8 @@
   </ion-list>
 
   <ion-infinite-scroll (ionInfinite)="loadMore($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubbles"
-    loadingText="Loading more data... "> </ion-infinite-scroll-content>
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data... ">
+    </ion-infinite-scroll-content>
   </ion-infinite-scroll>
-  
+
 </ion-content>

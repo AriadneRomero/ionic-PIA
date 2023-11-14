@@ -6,7 +6,17 @@ import { MoviesPage } from './movies.page';
 const routes: Routes = [
   {
     path: '',
-    component: MoviesPage
+    component: MoviesPage,
+    children: [
+      {
+        path: 'movies',
+        loadChildren: () => import('./movies.module').then(m => m.MoviesPageModule)
+      },
+      {
+        path: 'profile',
+        loadChildren: () => import('../main/profile/profile.module').then(m => m.ProfilePageModule)
+      }
+    ]
   }
 ];
 
@@ -14,4 +24,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MoviesPageRoutingModule {}
+export class MoviesPageRoutingModule { }
