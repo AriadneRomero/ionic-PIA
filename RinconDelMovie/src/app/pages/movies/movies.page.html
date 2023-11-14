@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>RinconDelMovie</ion-title>
+    <ion-title>Rincón Del Movie</ion-title>
+    <ion-button slot="end" expand="full" color="danger" (click)="signOut()">
+      Cerrar Sesión
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -23,4 +26,5 @@
     <ion-infinite-scroll-content loadingSpinner="bubbles"
     loadingText="Loading more data... "> </ion-infinite-scroll-content>
   </ion-infinite-scroll>
+  
 </ion-content>

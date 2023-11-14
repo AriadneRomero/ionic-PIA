@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { MovieService } from 'src/app/services/movie.service';
+import { UtilsService } from 'src/app/services/utils.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -14,9 +16,15 @@ export class MoviesPage implements OnInit {
   imageBaseUrl = environment.images;
 
   constructor(private movieService: MovieService, private loadingCtrl: LoadingController) { }
+  firebaseSvc = inject(FirebaseService);
+  utilsSvc = inject(UtilsService);
   
   ngOnInit() {
     this.loadMovies();
+  }
+
+  signOut() {
+    this.firebaseSvc.signOut();
   }
 
   async loadMovies(event?: InfiniteScrollCustomEvent) {
